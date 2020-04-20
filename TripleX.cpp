@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 
 void PrintIntroduction(int Difficulty)
 {
@@ -29,9 +30,9 @@ bool PlayGame(int Difficulty)
 {
     PrintIntroduction(Difficulty);
     // Declare 3 number code
-    const int CodeA = rand();
-    const int CodeB = rand();
-    const int CodeC = rand();
+    const int CodeA = rand() % Difficulty + Difficulty;
+    const int CodeB = rand() % Difficulty + Difficulty;
+    const int CodeC = rand() % Difficulty + Difficulty;
 
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
@@ -68,6 +69,9 @@ bool PlayGame(int Difficulty)
 
 const int main()
 {
+
+    srand(time(NULL)); // Creats new random sequance based on the time of the day
+
     int LevelDifficulty = 1;
     int const MaxDifficulty = 5;
 
